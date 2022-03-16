@@ -1,30 +1,36 @@
+import React, { Fragment } from 'react'
 import {Container, Button, Card, Badge, Row, Col} from 'react-bootstrap';
 import * as Icon from 'react-bootstrap-icons';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useState, useEffect } from 'react';
 import MessageAlert from './MessageAlert'
-import { Fragment, useState } from 'react';
 
-export default function captchaImages( { pictures, correcto }) {
+
+export default function CaptchaImages( { pictures, correcto }) {
 
   // 1 = pasaste, 2 = error,
-  const [ error, setError ] = useState(0) 
-
+  const [ error, setError ] = useState(0);
+  //const [msg, setMsg] = useState('')
   const correctoCheck = (name) => {
 
     if(name == correcto.name){
       setError( 1 );
+      //setMsg('pasaste el captcha')
       console.log('pasaste el captcha')
+      setTimeout( () => {window.location.reload(); },  2000)
     }else{
       setError( 2 );
+      //setMsg('te equivocaste')
       console.log('te equivocaste')
+      setTimeout( () => {window.location.reload(); },  2000)
+      
     }
 
   }
 
   return (
-    <Fragment>
-
-      <MessageAlert error={error} />
+    <>
+    <MessageAlert error={error} />
     <Card border="primary" style={{ width: '18rem' }}>
     <Card.Header><h4>Captcha</h4></Card.Header>
     <Card.Body>
@@ -48,14 +54,14 @@ export default function captchaImages( { pictures, correcto }) {
 
         </Row>
         <Row>
-        <Button variant="primary">Recargar <Icon.ArrowClockwise /></Button>
+        <Button variant="primary" onClick={()=>window.location.reload()}>Recargar <Icon.ArrowClockwise /></Button>
         </Row>
         </Container>
       </Card.Text>
 
     </Card.Body>
   </Card>
-    </Fragment>
+    </>
   
   
   )

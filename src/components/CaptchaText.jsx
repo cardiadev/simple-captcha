@@ -20,9 +20,11 @@ function validaRespuesta (){
    if( result == respuestaUser ) {
      setError( 1 );
      console.log('pasaste el captcha')
+     setTimeout( () => {window.location.reload(); },  2000)
    }else {
     setError( 2 );
      console.log('No pasaste ')
+     setTimeout( () => {window.location.reload(); },  2000)
    }
 }
 
@@ -49,7 +51,7 @@ function validaRespuesta (){
                 <input className="mb-3" type="text" placeholder="Escribe tu respuesta" id="respuesta" onChange={(e) => {setRespuestaUser( e.target.value )} } />
                 <Row>
                 <Button className="mb-3"  variant="primary" onClick={() => validaRespuesta() }>Validar</Button>
-                <Button variant="primary">Recargar <Icon.ArrowClockwise /></Button>
+                <Button variant="primary" onClick={()=> window.location.reload()}>Recargar <Icon.ArrowClockwise /></Button>
                 </Row>
                 </Form>
           </Col>
