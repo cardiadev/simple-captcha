@@ -25,7 +25,7 @@ function App() {
       //setNum1(Math.round(Math.random()*15));
       //setNum2(Math.round(Math.random()*15));
     }else{
-      fetch('http://localhost:9000/api/picture/generarRandom')
+      fetch('https://simple-captcha-backend.herokuapp.com/api/picture/generarRandom')
       .then( res => res.json() )
       .then( json => { console.log(json); 
                       setPictures( json.result );
