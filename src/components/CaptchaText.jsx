@@ -31,42 +31,38 @@ function validaRespuesta (){
   return (
       <Fragment>
          <MessageAlert error={error} />
-          <Card border="primary" style={{ width: '20rem' }}>
-    <Card.Header><h4>Captcha</h4></Card.Header>
-    <Card.Body>
-      <Card.Title><h5>Resuelve la siguiente operación</h5></Card.Title>
-      <Card.Text>
-        <Container>
-        <Row>
-          <Col className="mb-3">
-          <h1>{num1} + {num2}</h1>
+         <div className={ error && 'desactivar' }>
+            <Card border="primary" style={{ width: '20rem' }}>
+            <Card.Header><h4>Captcha</h4></Card.Header>
+            <Card.Body>
+              <Card.Title><h5>Resuelve la siguiente operación</h5></Card.Title>
+              <Card.Text>
+                <Container>
+                  <Row>
+                    <Col className="mb-3">
+                    <h1>{num1} + {num2}</h1>
 
-          </Col>
+                    </Col>
+
+                  </Row>
         
-        </Row>
-        
-        <Row>
-          <Col className="mb-3">
-                <Form className="mb-3" >
-                <input className="mb-3" type="text" placeholder="Escribe tu respuesta" id="respuesta" onChange={(e) => {setRespuestaUser( e.target.value )} } />
-                <Row>
-                <Button className="mb-3"  variant="primary" onClick={() => validaRespuesta() }>Validar</Button>
-                <Button variant="primary" onClick={()=> window.location.reload()}>Recargar <Icon.ArrowClockwise /></Button>
-                </Row>
-                </Form>
-          </Col>
-        </Row>
+                  <Row>
+                      <Col className="mb-3">
+                            <Form className="mb-3" >
+                            <input className="mb-3" type="number" placeholder="Escribe tu respuesta" id="respuesta" onChange={(e) => {setRespuestaUser( e.target.value )} } />
+                            <Row>
+                            <Button className="mb-3"  variant="primary" onClick={() => validaRespuesta() }>Validar</Button>
+                            <Button variant="primary" onClick={()=> window.location.reload()}>Recargar <Icon.ArrowClockwise /></Button>
+                            </Row>
+                            </Form>
+                      </Col>
+                    </Row>
 
-        </Container>
-      </Card.Text>
-
-
-
-    </Card.Body>
-  </Card>
-      </Fragment>
-    
-
-
+                  </Container>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+      </div>
+  </Fragment>
   )
 }

@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 export default function MessageAlert({error}) {
   return (
-    <Container>
+    <Container style={{ width: '20rem'}}>
       { error == 2 && (<Alert variant="danger" >
                         <Alert.Heading>Te equivocaste</Alert.Heading>
                             <p className="mb-0">Intentalo nuevamente</p>
